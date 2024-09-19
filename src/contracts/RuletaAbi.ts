@@ -3,6 +3,17 @@ export const CONTRACT_ABI = [
     {
         "inputs": [
             {
+                "internalType": "address payable",
+                "name": "_ownerWallet",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "inputs": [
+            {
                 "internalType": "address",
                 "name": "owner",
                 "type": "address"
@@ -124,6 +135,25 @@ export const CONTRACT_ABI = [
         "type": "event"
     },
     {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "player",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "TransferFailed",
+        "type": "event"
+    },
+    {
         "stateMutability": "payable",
         "type": "fallback"
     },
@@ -185,6 +215,25 @@ export const CONTRACT_ABI = [
                 "internalType": "uint256",
                 "name": "",
                 "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "player",
+                "type": "address"
+            }
+        ],
+        "name": "hasUnclaimedPrize",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
             }
         ],
         "stateMutability": "view",
@@ -271,37 +320,6 @@ export const CONTRACT_ABI = [
     },
     {
         "inputs": [],
-        "name": "randomResult",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "bytes32",
-                "name": "requestId",
-                "type": "bytes32"
-            },
-            {
-                "internalType": "uint256",
-                "name": "randomness",
-                "type": "uint256"
-            }
-        ],
-        "name": "rawFulfillRandomness",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [],
         "name": "renounceOwnership",
         "outputs": [],
         "stateMutability": "nonpayable",
@@ -310,19 +328,6 @@ export const CONTRACT_ABI = [
     {
         "inputs": [],
         "name": "resumeGame",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "newSeed",
-                "type": "uint256"
-            }
-        ],
-        "name": "setRandomSeed",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -338,19 +343,6 @@ export const CONTRACT_ABI = [
             }
         ],
         "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "amount",
-                "type": "uint256"
-            }
-        ],
-        "name": "topUpLINK",
-        "outputs": [],
-        "stateMutability": "nonpayable",
         "type": "function"
     },
     {
